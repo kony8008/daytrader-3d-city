@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DayTrader 3D City — AI Trading Fleet</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cesium/1.119/Build/Cesium/Cesium.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cesium/1.119/Build/Cesium/Widgets/widgets.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+
+  <!-- HUD Header -->
+  <div id="hud-header">
+    <div class="logo-box">
+      <span class="pulse-indicator"></span>
+      <h2>AI DAYTRADER 3D CITY</h2>
+      <span class="sub-badge">OPENFANG FLEET ENGINE</span>
+    </div>
+    <div class="action-buttons">
+      <button onclick="focusDowntown()">Reset View</button>
+      <button onclick="toggleFlyover()" id="flyBtn">Flyover Auto</button>
+      <button onclick="toggleWireframe()">City View</button>
+    </div>
+  </div>
+
+  <!-- Stats Overlay -->
+  <div id="statsPanel">
+    <h3>DISTRICT SUMMARY</h3>
+    <div class="stat-row"><span>Total Fleet:</span> <strong id="totalTraders">18 Bots</strong></div>
+    <div class="stat-row"><span>Portfolio Equity:</span> <strong id="totalEquity">$180,000.00</strong></div>
+    <div class="stat-row"><span>Active P&L:</span> <strong id="activePnL" class="green">+$0.00</strong></div>
+    <div class="stat-row"><span>Avg Win-Rate:</span> <strong id="winRate">68.4%</strong></div>
+    <div class="stat-row"><span>Fleet Sharpe:</span> <strong id="sharpe">1.94</strong></div>
+    <div class="stat-divider"></div>
+    <div class="strategy-list">
+      <div><span class="tag scalping">Scalping</span> High-frequency (1m-5m)</div>
+      <div><span class="tag momentum">Momentum</span> Velocity breakout</div>
+      <div><span class="tag grid">Grid Trading</span> Sideways order books</div>
+      <div><span class="tag dca">DCA Engine</span> Smart accumulation</div>
+    </div>
+  </div>
+
+  <!-- Active Trader Inspector -->
+  <div id="inspectorPanel">
+    <h3>INSPECTOR: <span id="insp-name">DeskBot-01</span></h3>
+    <div class="stat-row"><span>Strategy:</span> <strong id="insp-strat">Scalping</strong></div>
+    <div class="stat-row"><span>Active Symbol:</span> <strong id="insp-sym">BTC/USDT</strong></div>
+    <div class="stat-row"><span>Current P&L:</span> <strong id="insp-pnl" class="green">+$240.50</strong></div>
+    <div class="stat-row"><span>AI Conviction:</span> <strong id="insp-conf">88%</strong></div>
+    <div class="stat-row"><span>Status:</span> <strong class="green">STREAMING REAL-TIME</strong></div>
+  </div>
+
+  <script src="trader.js"></script>
+</body>
+</html>
